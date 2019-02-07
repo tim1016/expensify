@@ -1,0 +1,57 @@
+{
+	"name": "webpack-tutorial",
+	"version": "1.0.0",
+	"description": "starter pack for bootstrap webpack",
+	"main": "app.js",
+	"scripts": {
+		"start": "devserver",
+		"webpack": "webpack",
+		"devserver": "webpack-dev-server --open",
+		"webpack:production": "webpack -p"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/tim1016/webpack.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/tim1016/webpack/issues"
+	},
+	"homepage": "https://github.com/tim1016/webpack#readme",
+	"dependencies": {
+		"@babel/plugin-proposal-class-properties": "^7.3.0",
+		"@babel/polyfill": "^7.2.5",
+		"bootstrap": "^4.2.1",
+		"jquery": "^3.3.1",
+		"jquery-smooth-scroll": "^2.2.0",
+		"normalize.css": "^8.0.1",
+		"popper.js": "^1.14.7"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.2.2",
+		"@babel/plugin-proposal-object-rest-spread": "^7.3.2",
+		"@babel/preset-env": "^7.3.1",
+		"@babel/preset-react": "^7.0.0",
+		"autoprefixer": "^9.4.7",
+		"babel-loader": "^8.0.5",
+		"core-js": "^2.6.3",
+		"css-loader": "^2.1.0",
+		"file-loader": "^3.0.1",
+		"html-loader": "^0.5.5",
+		"html-webpack-plugin": "^3.2.0",
+		"image-webpack-loader": "^4.6.0",
+		"node-sass": "^4.11.0",
+		"path": "^0.12.7",
+		"postcss-loader": "^3.0.0",
+		"precss": "^4.0.0",
+		"raf": "^3.4.1",
+		"react": "^16.7.0",
+		"react-dom": "^16.7.0",
+		"sass-loader": "^7.1.0",
+		"style-loader": "^0.23.1",
+		"webpack": "^4.29.1",
+		"webpack-cli": "^3.2.3",
+		"webpack-dev-server": "^3.1.14"
+	}
+}
