@@ -5,7 +5,15 @@ var appRoot = document.getElementById("app"); // ReactDOM.render(template, appRo
 
 var obj = {
   title: "this is JSX",
-  subtitle: "this is subtitle"
+  subtitle: "this is subtitle",
+  options: ["one", "Two"]
 };
-template2 = React.createElement("div", null, React.createElement("h1", null, obj.title), React.createElement("p", null, obj.subtitle));
-ReactDOM.render(template2, appRoot);
+
+function getSubtitle(obj) {
+  if (obj.subtitle) {
+    return "<p> {obj.subtitle} </p>";
+  }
+}
+
+;
+var template2 = React.createElement("div", null, React.createElement("h1", null, obj.title)); // ReactDOM.render(template2,appRoot);

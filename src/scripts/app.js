@@ -8,13 +8,19 @@ var appRoot = document.getElementById("app");
 
 var obj = {
     title: "this is JSX",
-    subtitle: "this is subtitle"
+    subtitle: "this is subtitle",
+    options: ["one", "Two"]
+};
+
+function getSubtitle(obj) {
+    if(obj.subtitle){
+        return `<p> {obj.subtitle} </p>`
+    }
 };
 
 var template2 = (
     <div>
         <h1>{obj.title}</h1>
-        <p>{obj.subtitle}</p>
     </div>
 );
 

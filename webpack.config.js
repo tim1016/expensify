@@ -1,5 +1,5 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
-const { join, resolve } = require('path');
+const path = require('path');
 
 module.exports = {
     mode: "development",
@@ -16,6 +16,9 @@ module.exports = {
         rules : [
             {
                 loader: "babel-loader",
+                options: {
+                    babelrc: true
+                },
                 test: /\.(js|jsx)$/
             },
             {
@@ -70,7 +73,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebPackPlugin({
-          template: join(__dirname, 'public', 'index.html')
+          template: path.join(__dirname, 'public', 'index.html')
         })
     ]
 }
