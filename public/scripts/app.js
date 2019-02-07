@@ -1,19 +1,10 @@
-"use strict"; // JSX javascript XML
-// var template = React.createElement("div", null, " ", React.createElement("h1", null, "This is JSX from app.js"), " ", React.createElement("p", null, "this is a paragraph"), " ");
+"use strict";
 
-var appRoot = document.getElementById("app"); // ReactDOM.render(template, appRoot);
-
+var appRoot = document.getElementById("app");
 var obj = {
-  title: "this is JSX",
-  subtitle: "this is subtitle",
-  options: ["one", "Two"]
+  title: "Indecision App",
+  subtitle: "Put your life in the hands of the computer",
+  options: ["One", "Two"]
 };
-
-function getSubtitle(obj) {
-  if (obj.subtitle) {
-    return "<p> {obj.subtitle} </p>";
-  }
-}
-
-;
-var template2 = React.createElement("div", null, React.createElement("h1", null, obj.title)); // ReactDOM.render(template2,appRoot);
+var template2 = React.createElement("div", null, React.createElement("h1", null, obj.title), obj.subtitle && React.createElement("p", null, obj.subtitle), React.createElement("p", null, obj.options.length >= 2 ? "Your Options" : "No options"), React.createElement("ol", null, React.createElement("li", null, obj.options[0]), React.createElement("li", null, obj.options[1])));
+ReactDOM.render(template2, appRoot);

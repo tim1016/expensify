@@ -4,8 +4,8 @@
 	"description": "starter pack for bootstrap webpack",
 	"main": "app.js",
 	"scripts": {
-		"start": "devserver",
 		"webpack": "webpack",
+		"start": "webpack-dev-server  --open",
 		"devserver": "webpack-dev-server --open",
 		"webpack:production": "webpack -p"
 	},
@@ -20,9 +20,11 @@
 	},
 	"homepage": "https://github.com/tim1016/webpack#readme",
 	"dependencies": {
+		"@babel/cli": "^7.2.3",
 		"@babel/plugin-proposal-class-properties": "^7.3.0",
 		"@babel/polyfill": "^7.2.5",
 		"bootstrap": "^4.2.1",
+		"chokidar": "^2.1.0",
 		"jquery": "^3.3.1",
 		"jquery-smooth-scroll": "^2.2.0",
 		"normalize.css": "^8.0.1",
