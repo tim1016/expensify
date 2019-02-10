@@ -2,7 +2,7 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 const path = require('path');
 
 module.exports = {
-    mode: "production",
+    mode: "development",
     entry: "./src/scripts/app.jsx",
     output: {
         path: __dirname + "./public/scripts",
@@ -20,7 +20,7 @@ module.exports = {
                     babelrc: true
                 },
                 test: /\.(js|jsx)$/
-            },
+            }/*,
             {
                 test: /\.s?css$/,
                 use: [
@@ -68,7 +68,7 @@ module.exports = {
                     },
                 ]
 
-            }
+            } */
         ]
     },
     plugins: [
