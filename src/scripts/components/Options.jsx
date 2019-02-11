@@ -1,3 +1,4 @@
+import React from 'react';
 import Option from './Option.jsx';
 const Options = (props) => {
     return (

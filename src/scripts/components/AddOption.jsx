@@ -1,26 +1,20 @@
 import React from 'react';
 
 class AddOption extends React.Component{
-    constructor(props){
-        super(props);
-        this.processOption = this.processOption.bind(this);
-        this.state = {
-            error: undefined
-        }
+    state = {
+        error: undefined
     }
 
-    processOption(e){
+
+
+    processOption = e => {
         e.preventDefault();
         const option = e.target.elements.option.value.trim();
-
         const error = this.props.add(option);
-        
         this.setState(()=> ({error}));
-
         if(!error){
             e.target.elements.option.value = "";
         }
-    
         console.log("Add option", this.state);
     }
 

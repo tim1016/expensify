@@ -5,9 +5,9 @@ module.exports = {
     mode: "development",
     entry: "./src/scripts/app.jsx",
     output: {
-        path: path.join(__dirname, 'public', 'scripts'),
+        path: path.join(__dirname, 'public'),
         // path: __dirname + "./public/scripts/app.js",
-        filename: "app.js"
+        filename: "bundle.js"
     },
     devServer: {
         contentBase: path.join(__dirname, 'public'),
