@@ -1,5 +1,5 @@
 {
-	"name": "webpack-tutorial",
+	"name": "expensify",
 	"version": "1.0.0",
 	"description": "starter pack for bootstrap webpack",
 	"main": "app.js",
@@ -8,11 +8,11 @@
 		"start": "webpack-dev-server  --open",
 		"devserver": "webpack-dev-server --open",
 		"webpack:production": "webpack -p",
-		"build-babel": "babel src/app.jsx --out-file=public/scripts/app.jsx --presets=@babel/env,@babel/react"
+		"build-babel": "babel src/app.jsx --out-file=public/scripts/bundle.js --presets=@babel/env,@babel/react"
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/tim1016/webpack.git"
+		"url": ""
 	},
 	"author": "",
 	"license": "ISC",
@@ -32,6 +32,7 @@
 		"popper.js": "^1.14.7",
 		"react": "^16.8.1",
 		"react-dom": "^16.8.1",
+		"react-router-dom": "^4.3.1",
 		"validator": "^10.11.0"
 	},
 	"devDependencies": {

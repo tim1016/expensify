@@ -6,7 +6,6 @@ module.exports = {
     entry: "./src/scripts/app.jsx",
     output: {
         path: path.join(__dirname, 'public'),
-        // path: __dirname + "./public/scripts/app.js",
         filename: "bundle.js"
     },
     devServer: {
@@ -22,7 +21,7 @@ module.exports = {
                 },
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/
-            }/*,
+            },
             {
                 test: /\.s?css$/,
                 use: [
@@ -38,7 +37,7 @@ module.exports = {
                         loader: "html-loader"
                     }
                 ]
-            },
+            }/*,
             {
                 test: /\.(gif|png|jpe?g|svg)/i,
                 use: [
