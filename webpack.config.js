@@ -5,11 +5,12 @@ module.exports = {
     mode: "development",
     entry: "./src/scripts/app.jsx",
     output: {
-        path: __dirname + "./public/scripts",
+        path: path.join(__dirname, 'public', 'scripts'),
+        // path: __dirname + "./public/scripts/app.js",
         filename: "app.js"
     },
     devServer: {
-        contentBase: __dirname + "/public",
+        contentBase: path.join(__dirname, 'public'),
         port: 8080
     },
     module: {
@@ -19,7 +20,8 @@ module.exports = {
                 options: {
                     babelrc: true
                 },
-                test: /\.(js|jsx)$/
+                test: /\.(js|jsx)$/,
+                exclude: /node_modules/
             }/*,
             {
                 test: /\.s?css$/,
@@ -75,5 +77,6 @@ module.exports = {
         new HtmlWebPackPlugin({
           template: path.join(__dirname, 'public', 'index.html')
         })
-    ]
+    ],
+    devtool: 'cheap-module-eval-source-map'
 }

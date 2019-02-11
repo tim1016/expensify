@@ -35,13 +35,32 @@ class Counter extends React.Component{
     handleReset(e){
         this.setState(()=>{return {count:0}});
     }
+
+    componentDidMount(){
+        json = localStorage.getItem('count');
+        let count = JSON.parse(json);
+        count = parseInt(count);
+        if(!isNaN(count))
+        this.setState( ()=>({count}));
+
+    }
+
+    componentDidUpdate(){
+        const json = JSON.stringify(this.state.count);
+        localStorage.setItem('count',json);
+    }
+
+    componentWillUnmount(){
+        const json = JSON.stringify(this.state.count);
+        localStorage.setItem('count',json);
+    }
 }
 
 Counter.defaultProps = {
     count:100
 }
 
-ReactDOM.render(<Counter count={100}/>, document.getElementById("app"));
+ReactDOM.render(<Counter count={0}/>, document.getElementById("app"));
 
 // let count = 0;
 // const addOne =() =>{
