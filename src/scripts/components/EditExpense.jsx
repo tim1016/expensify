@@ -1,6 +1,10 @@
 import React from 'react';
-const EditExpense = () => (
-    <div>Edit your expense</div>
-);
+const EditExpense = (props) => {
+    console.log(props);
+    const jsx=(
+        <div>Edit {props.match.params.id}</div>
+    );
+    return jsx;
+}
 
 export default EditExpense;
