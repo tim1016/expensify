@@ -1,5 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import "../styles/style.scss";
+import AppRouter from "./routers/AppRouter.jsx";
 
-ReactDOM.render(<p>This is my boiler plate</p>, document.getElementById("app"));
+import "../styles/styles.scss";
+
+
+
+
+ReactDOM.render(<AppRouter/>, document.getElementById("app"));

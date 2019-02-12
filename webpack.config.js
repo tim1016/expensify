@@ -10,6 +10,7 @@ module.exports = {
     },
     devServer: {
         contentBase: path.join(__dirname, 'public'),
+        historyApiFallback:true,
         port: 8080
     },
     module: {
@@ -29,7 +30,7 @@ module.exports = {
                     "css-loader", 
                     "postcss-loader", 
                     "sass-loader"]
-            },
+            }/*,
             {
                 test: /\.html$/,
                 use: [
@@ -37,7 +38,7 @@ module.exports = {
                         loader: "html-loader"
                     }
                 ]
-            }/*,
+            },
             {
                 test: /\.(gif|png|jpe?g|svg)/i,
                 use: [
@@ -71,11 +72,11 @@ module.exports = {
 
             } */
         ]
-    },
+    },/*
     plugins: [
         new HtmlWebPackPlugin({
           template: path.join(__dirname, 'public', 'index.html')
         })
-    ],
+    ],*/
     devtool: 'cheap-module-eval-source-map'
 }
