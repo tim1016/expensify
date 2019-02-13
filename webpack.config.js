@@ -3,7 +3,7 @@ const path = require('path');
 
 module.exports = {
     mode: "development",
-    entry: "./src/scripts/app.jsx",
+    entry: "./src/scripts/playground/redux-expensify.jsx",
     output: {
         path: path.join(__dirname, 'public'),
         filename: "bundle.js"
@@ -72,12 +72,12 @@ module.exports = {
 
             } */
         ]
-    },
+    }, /*
     plugins: [
         new HtmlWebPackPlugin({
             filename: 'index.html',
             template: path.join(__dirname, 'src', 'index.html')
         })
-    ],
+    ],*/
     devtool: 'cheap-module-eval-source-map'
 }
