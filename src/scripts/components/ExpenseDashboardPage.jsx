@@ -1,6 +1,13 @@
 import React from 'react';
+import ExpenseList from './ExpenseList.jsx'
+import ExpenseListFilters from './ExpenseListFilters.jsx';
+import {connect} from 'react-redux';
+
 const ExpenseDashboardPage = () => (
-    <div>This is from my expense dashboard page</div>
+    <div>
+        <ExpenseListFilters/>
+        <ExpenseList/>
+    </div>
 );
 
 export default ExpenseDashboardPage;
