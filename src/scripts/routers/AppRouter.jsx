@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter, Route, Switch, NavLink} from 'react-router-dom';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import ExpenseDashboardPage from '../components/ExpenseDashboardPage.jsx';
 import AddExpense from '../components/AddExpense.jsx';
 import NotFoundPage from '../components/NotFoundPage.jsx';
