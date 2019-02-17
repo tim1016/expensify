@@ -1,8 +1,8 @@
 import React from 'react';
 import  {connect} from 'react-redux';
-import ExpenseForm from './ExpenseForm.jsx';
+import ExpenseForm from './ExpenseForm';
 
-import {addExpense} from '../actions/expenses.jsx'
+import {addExpense} from '../actions/expenses'
 
 
 const AddExpense = (props) => (

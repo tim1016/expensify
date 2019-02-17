@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 
 import "../styles/styles.scss";
-import AppRouter from "./routers/AppRouter.jsx";
-import configureStore from './store/configureStore.jsx';
-import {addExpense, removeExpense, editExpense} from './actions/expenses.jsx';
-import {sortByDate, sortByAmount, setTextFilter, setStartDate, setEndDate} from './actions/filters.jsx'
-import getVisibleExpenses from './selectors/expenses.jsx';
+import AppRouter from "./routers/AppRouter";
+import configureStore from './store/configureStore';
+import {addExpense, removeExpense, editExpense} from './actions/expenses';
+import {sortByDate, sortByAmount, setTextFilter, setStartDate, setEndDate} from './actions/filters'
+import getVisibleExpenses from './selectors/expenses';
 import moment from 'moment';
 
 // The following creates the store and adds a few expenses and filters
