@@ -1,5 +1,4 @@
 import {addExpense, removeExpense, editExpense} from '../../actions/expenses';
-import uuid from 'uuid';
 import moment from 'moment';
 
 test('should set up remove expense action object', ()=>{
