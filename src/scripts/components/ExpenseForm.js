@@ -4,7 +4,7 @@ import moment from 'moment';
 
 import 'react-dates/initialize';
 import {  SingleDatePicker } from 'react-dates';
-import 'react-dates/lib/css/_datepicker.css';
+
 
 // const now = moment();
 // console.log(now.format("MMM Do, YYYY"));
@@ -15,7 +15,7 @@ export default class ExpenseForm extends React.Component{
         this.state = {
             description:props.expense? props.expense.description: '',
             note:       props.expense? props.expense.note:'',
-            amount:     props.expense? props.expense.amount:'',
+            amount:     props.expense? (props.expense.amount).toString() : '',
             createdAt:  props.expense? moment(props.expense.createdAt):moment(),
             calendarFocused: false,
             error:''
@@ -28,7 +28,6 @@ export default class ExpenseForm extends React.Component{
         this.setState(
             () => ({description})
         );
-        console.log(this.state.description);
 
     }
     onNoteChange = e => {
@@ -38,13 +37,16 @@ export default class ExpenseForm extends React.Component{
         )
     }
 
-    onAmountChange = e => {
-        const amount =e.target.value;
-        if(!amount || amount.match(/^\d{1,}(\.\d{0,2})?/))
-        {
-            this.setState( () => ({amount}) )
+    
+
+    onAmountChange = (e) => {
+        const amount = e.target.value;
+    
+        if (!amount || amount.match(/^\d{1,}(\.\d{0,2})?$/)) {
+          this.setState(() => ({ amount }));
         }
-    }
+    };
+
 
     onDateChange = (createdAt) =>{
         if(createdAt){
@@ -71,6 +73,7 @@ export default class ExpenseForm extends React.Component{
         }
     }
 
+
     render(){
         return (
             <div>
@@ -79,7 +82,6 @@ export default class ExpenseForm extends React.Component{
                     <input 
                     type="text" 
                     placeholder="Description" 
-                    id="" 
                     value={this.state.description}  
                     onChange={this.onDescriptionChange}
                     autoFocus/>
@@ -89,7 +91,8 @@ export default class ExpenseForm extends React.Component{
                     placeholder="Amount"
                     value={this.state.amount}
                     onChange={this.onAmountChange} 
-                    id=""/>
+                    />
+                    
                     
                     <SingleDatePicker
                     date={this.state.createdAt}

@@ -9,6 +9,7 @@ import {addExpense, removeExpense, editExpense} from './actions/expenses';
 import {sortByDate, sortByAmount, setTextFilter, setStartDate, setEndDate} from './actions/filters'
 import getVisibleExpenses from './selectors/expenses';
 import moment from 'moment';
+import 'react-dates/lib/css/_datepicker.css';
 
 // The following creates the store and adds a few expenses and filters
 const store = configureStore();
