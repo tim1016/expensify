@@ -1,8 +1,10 @@
 // const HtmlWebPackPlugin = require('html-webpack-plugin');
 const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = (env, argv) => {
   const isProduction = (env === 'production');
+  const CSSExtract = new MiniCssExtractPlugin({ filename: 'styles.css' });
 
   return {
     mode: isProduction ? 'production' : 'development',
@@ -29,10 +31,11 @@ module.exports = (env, argv) => {
         {
           test: /\.s?css$/,
           use: [
-            'style-loader',
-            'css-loader',
-            'postcss-loader',
-            'sass-loader']
+            MiniCssExtractPlugin.loader,
+            { loader: 'css-loader',     options: { sourceMap: true } },
+            { loader: 'postcss-loader', options: { sourceMap: true } },
+            { loader: 'sass-loader',    options: { sourceMap: true } }
+          ]
         },
         {
           test: /\.html$/,
@@ -75,13 +78,14 @@ module.exports = (env, argv) => {
 
         }
       ]
-    }, /*
+    },
     plugins: [
-      new HtmlWebPackPlugin({
-        filename: 'index.html',
-        template: path.join(__dirname, 'src', 'index.html')
-      })
-    ],  */
-    devtool: isProduction ? 'source-map' : 'cheap-module-eval-source-map'
+      CSSExtract
+      // new HtmlWebPackPlugin({
+      //   filename: 'index.html',
+      //   template: path.join(__dirname, 'src', 'index.html')
+      // })
+    ],
+    devtool: isProduction ? 'source-map' : 'inline-source-map'
   };
 };
