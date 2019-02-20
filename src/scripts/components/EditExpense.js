@@ -5,27 +5,55 @@ import {editExpense,removeExpense} from '../actions/expenses';
 
 
 
-const EditExpense = (props) => (
-    <div>
-        <h1>Add Expense</h1>
-        <ExpenseForm expense={props.expense}  onSubmit={ (expense) => {
-            props.dispatch(editExpense(props.match.params.id, expense));
-            props.history.push("/"); 
-        }}
-        />
-        <button onClick={ () => {
-            props.dispatch(removeExpense({id: props.expense.id}))
-            props.history.push("/");
-        }
+export class EditExpense extends React.Component{
 
-        }> Remove Expense</button>
-    </div> 
-);
-
-
-const mapStateToProps = (state, props) => {
-    return {        
-        expense: state.expenses.find((expense) => expense.id === props.match.params.id)
+    constructor(props){
+        super(props);
     }
-} 
-export default connect(mapStateToProps)(EditExpense);
+
+    onSubmit= (id, expense) => {
+        console.log(this.props);
+        this.props.editExpense(this.props.expense.id, this.props.expense);
+        this.props.history.push("/"); 
+    }
+
+    onRemove = (id) => {
+        this.props.removeExpense(this.props.expense.id);
+        this.props.history.push("/");
+    }
+
+    render(){
+        return (
+            <div>
+                <h1>Add Expense</h1>
+                <ExpenseForm 
+                expense={this.props.expense}  
+                onSubmit={this.onSubmit}
+                />
+
+                <button 
+                onClick={this.onRemove}>
+                Remove Expense
+                </button>
+
+            </div> 
+        );
+    }
+}
+
+
+
+
+const mapStateToProps = (state, props) => (
+    {expense: state.expenses.find((expense) => expense.id === props.match.params.id)}
+    );
+       
+        
+
+
+const mapDispatchToProps = (dispatch,props) => ({
+    editExpense: (id,expense)=> dispatch(editExpense(id,expense)),
+    removeExpense: (data) => dispatch(removeExpense(data))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(EditExpense);
