@@ -1,11 +1,12 @@
+// eslint-disable-next-line babel/quotes
 import React from 'react';
-import AddExpense from '../../components/AddExpense';
 import { shallow } from 'enzyme';
-import {expenses} from '../fixtures/state';
+import { AddExpense } from '../../components/AddExpense';
+import { expenses } from '../fixtures/state';
 
 
-
-let addExpense, history, wrapper;
+let addExpense; let history; let
+  wrapper;
 
 beforeEach(() => {
   addExpense = jest.fn();
@@ -17,11 +18,8 @@ test('should render AddExpensePage correctly', () => {
   expect(wrapper).toMatchSnapshot();
 });
 
-test('should handle onSubmit', () => {
+test('Handle AddExpense onSubmit', () => {
   wrapper.find('ExpenseForm').prop('onSubmit')(expenses[1]);
   expect(history.push).toHaveBeenLastCalledWith('/');
   expect(addExpense).toHaveBeenLastCalledWith(expenses[1]);
 });
-
-
-

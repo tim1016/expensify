@@ -11,8 +11,7 @@ export class EditExpense extends React.Component{
         super(props);
     }
 
-    onSubmit= (id, expense) => {
-        console.log(this.props);
+    onSubmit = (id, expense) => {
         this.props.editExpense(this.props.expense.id, this.props.expense);
         this.props.history.push("/"); 
     }

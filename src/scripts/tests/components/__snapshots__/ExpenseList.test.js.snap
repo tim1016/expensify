@@ -3,7 +3,7 @@
 exports[`Render ExpenseList (empty) 1`] = `
 <div>
   <p>
-    No expenses found
+    No expenses
   </p>
 </div>
 `;
