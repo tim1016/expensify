@@ -12,7 +12,7 @@
 		"build-babel": "babel src/app.jsx --out-file=public/scripts/bundle.js --presets=@babel/env,@babel/react",
 		"test": "jest --config=jest.config.json",
 		"jestwatch": "jest --config=jest.config.json --watch",
-		"start" : "Node server/server.js",
+		"start" : "node server/server.js",
 		"heroku-postbuild": "npm run build:prod"
 	},
 	"repository": {
