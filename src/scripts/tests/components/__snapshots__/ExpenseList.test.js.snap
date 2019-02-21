@@ -11,27 +11,27 @@ exports[`Render ExpenseList (empty) 1`] = `
 exports[`Render ExpenseList 1`] = `
 <div>
   <ExpenseListItem
-    amount={4500}
-    createdAt={"1970-01-01T00:00:00.000Z"}
-    description="Water bill"
-    id="221e5b57-0db6-4b52-8300-fd5950e401b6"
-    key="221e5b57-0db6-4b52-8300-fd5950e401b6"
+    amount={195}
+    createdAt={0}
+    description="Gum"
+    id="1"
+    key="1"
     note=""
   />
   <ExpenseListItem
-    amount={5000}
-    createdAt={"1970-01-05T00:00:00.000Z"}
-    description="Gas bill"
-    id="8b80b9fe-b732-420f-934d-717ac788b94c"
-    key="8b80b9fe-b732-420f-934d-717ac788b94c"
-    note="Note1"
+    amount={109500}
+    createdAt={-345600000}
+    description="Rent"
+    id="2"
+    key="2"
+    note=""
   />
   <ExpenseListItem
-    amount={109500}
-    createdAt={"1970-01-05T00:00:00.000Z"}
-    description="Rent"
-    id="7e95bfc0-900a-41da-ac66-ec442b5170dd"
-    key="7e95bfc0-900a-41da-ac66-ec442b5170dd"
+    amount={4500}
+    createdAt={345600000}
+    description="Credit Card"
+    id="3"
+    key="3"
     note=""
   />
 </div>
