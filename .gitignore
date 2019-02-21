@@ -3,3 +3,4 @@ temp/
 *.snap
 *.map
 public/styles.css
+dist/

@@ -10,13 +10,14 @@ module.exports = (env, argv) => {
     mode: isProduction ? 'production' : 'development',
     entry: './src/scripts/app.js',
     output: {
-      path: path.join(__dirname, 'public'),
+      path: path.join(__dirname, 'public', 'dist'),
       filename: 'bundle.js'
     },
     devServer: {
       contentBase: path.join(__dirname, 'public'),
       historyApiFallback: true,
-      port: 8080
+      port: 8080,
+      publicPath: '/dist/'
     },
     module: {
       rules: [
