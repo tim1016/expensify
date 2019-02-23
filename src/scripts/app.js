@@ -7,11 +7,8 @@ import AppRouter from './routers/AppRouter';
 import configureStore from './store/configureStore';
 // import { addExpense, removeExpense, editExpense } from './actions/expenses';
 import { addExpense } from './actions/expenses';
-// import {
-//  sortByDate, sortByAmount, setTextFilter, setStartDate, setEndDate
-// } from './actions/filters'
-// import getVisibleExpenses from './selectors/expenses';
-// import moment from 'moment';
+import './firebase/firebase';
+// import '../playground/promises';
 
 import '../styles/styles.scss';
 import 'react-dates/lib/css/_datepicker.css';
