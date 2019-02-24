@@ -12,23 +12,70 @@ const config = {
 
 firebase.initializeApp(config);
 
-// eslint-disable-next-line no-unused-vars
 const database = firebase.database();
 
-function Expense(title = 'Anonymous', amount = 0, createdAt = moment(0), note = '') {
-  this.title = title;
-  this.amount = amount;
-  this.createdAt = moment(createdAt).valueOf();
-  this.note = note;
-}
+export { firebase, database as default };
 
-const exp1 = new Expense('Bill1', 250, 10, 'junk');
-const exp2 = new Expense('Cill1', 350, 15, 'kunk');
-const exp3 = new Expense('Dill1', 450, 55, 'lunk');
-const exp4 = new Expense();
-const exp5 = new Expense('Rendezvous Trail', 10050, 0, 'firebase');
 
-database.ref('expenses').push(exp5);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// eslint-disable-next-line no-unused-vars
+
+
+// function Expense(title = 'Anonymous', amount = 0, createdAt = moment(0), note = '') {
+//   this.title = title;
+//   this.amount = amount;
+//   this.createdAt = moment(createdAt).valueOf();
+//   this.note = note;
+// }
+
+// const exp1 = new Expense('Bill1', 250, 10, 'junk');
+// const exp2 = new Expense('Cill1', 350, 15, 'kunk');
+// const exp3 = new Expense('Dill1', 450, 55, 'lunk');
+// const exp4 = new Expense();
+// const exp5 = new Expense('Rendezvous Trail', 10050, 0, 'firebase');
+
+// database.ref('expenses').push(exp5);
 
 // database.ref('expenses').on('child_removed', (snapshot) => {
 //   console.log(snapshot.key, snapshot.val());
