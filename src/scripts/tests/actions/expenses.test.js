@@ -1,13 +1,24 @@
+/* eslint-disable object-curly-newline */
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import moment from 'moment';
 import {
-  startAddExpense, addExpense, removeExpense, editExpense
+  startAddExpense, addExpense, removeExpense, editExpense, setExpenses
 } from '../../actions/expenses';
 import { expenses } from '../fixtures/state';
 import database from '../../firebase/firebase';
 
 const createMockStore = configureMockStore([thunk]);
+
+beforeEach((done) => {
+  const expenseData = {};
+  // eslint-disable-next-line object-curly-newline
+  expenses.forEach(({ id, description, note, amount, createdAt }) => {
+    expenseData[id] = { description, note, amount, createdAt };
+  });
+  database.ref('expenses').set(expenseData).then(() => done());
+});
+
 
 test('should set up remove expense action object', () => {
   const action = removeExpense({ id: '123abc' });
@@ -120,4 +131,13 @@ test('Add expense to database and store with defaultvalues', (done) => {
       });
       done();
     });
+});
+
+
+test('set up set expense object with data', () => {
+  const action = setExpenses(expenses);
+  expect(action).toEqual({
+    type: 'SET_EXPENSES',
+    expenses
+  });
 });

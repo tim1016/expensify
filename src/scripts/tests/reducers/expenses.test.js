@@ -66,3 +66,11 @@ test('Edit expense reducer (failure)', () => {
   const action = expensesReducer(expenses, reducerAction);
   expect(action[0].description).toEqual(expenses[0].description);
 });
+
+
+test('should test set expenses reducer', () => {
+  reducerAction.type = 'SET_EXPENSES';
+  reducerAction.expenses = [expenses[1]];
+  const action = expensesReducer(expenses, reducerAction);
+  expect(action).toEqual([expenses[1]]);
+});
