@@ -3,7 +3,7 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import moment from 'moment';
 import {
-  startAddExpense, addExpense, removeExpense, editExpense, setExpenses
+  startAddExpense, addExpense, removeExpense, editExpense, setExpenses, startSetExpenses
 } from '../../actions/expenses';
 import { expenses } from '../fixtures/state';
 import database from '../../firebase/firebase';
@@ -60,21 +60,6 @@ test('should set up Add expense object', () => {
     }
   });
 });
-
-
-// test('Add expense default object', () => {
-//   const action = addExpense();
-//   expect(action).toEqual({
-//     type: 'ADD_EXPENSE',
-//     expense: {
-//       description: '',
-//       note: '',
-//       amount: 0,
-//       createdAt: 0,
-//       id: expect.any(String)
-//     }
-//   });
-// });
 
 test('Add expense to database and store', (done) => {
   const store = createMockStore({});
@@ -139,5 +124,17 @@ test('set up set expense object with data', () => {
   expect(action).toEqual({
     type: 'SET_EXPENSES',
     expenses
+  });
+});
+
+test('should fetch expenses from firebase', (done) => {
+  const store = createMockStore();
+  store.dispatch(startSetExpenses()).then(() => {
+    const actions = store.getActions();
+    expect(actions[0]).toEqual({
+      type: 'SET_EXPENSES',
+      expenses
+    });
+    done();
   });
 });
