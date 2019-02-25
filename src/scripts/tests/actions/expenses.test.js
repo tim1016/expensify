@@ -3,7 +3,7 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import moment from 'moment';
 import {
-  startAddExpense, addExpense, removeExpense, editExpense, setExpenses, startSetExpenses
+  startAddExpense, addExpense, removeExpense, editExpense, setExpenses, startSetExpenses, startRemoveExpense
 } from '../../actions/expenses';
 import { expenses } from '../fixtures/state';
 import database from '../../firebase/firebase';
@@ -134,6 +134,21 @@ test('should fetch expenses from firebase', (done) => {
     expect(actions[0]).toEqual({
       type: 'SET_EXPENSES',
       expenses
+    });
+    done();
+  });
+});
+
+
+test('should remove an expense from firebase', (done) => {
+  const store = createMockStore();
+  // eslint-disable-next-line prefer-destructuring
+  const id = expenses[0].id;
+  store.dispatch(startRemoveExpense({ id })).then(() => {
+    const actions = store.getActions();
+    expect(actions[0]).toEqual({
+      type: 'REMOVE_EXPENSE',
+      id
     });
     done();
   });

@@ -63,3 +63,16 @@ export const startSetExpenses = () => {
       });
   };
 };
+
+
+// eslint-disable-next-line arrow-body-style
+export const startRemoveExpense = ( id ) => {
+  // eslint-disable-next-line arrow-body-style
+  console.log(id);
+  return (dispatch) => {
+    return database.ref(`expenses/${id}`).remove()
+      .then(() => {
+        dispatch(removeExpense({ id }));
+      });
+  };
+};
