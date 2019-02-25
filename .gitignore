@@ -4,3 +4,5 @@ temp/
 *.map
 public/styles.css
 dist/
+.env.test
+.env.development
