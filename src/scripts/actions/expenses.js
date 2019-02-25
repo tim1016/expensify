@@ -1,3 +1,4 @@
+/* eslint-disable arrow-body-style */
 // import uuid from 'uuid';
 import database from '../firebase/firebase';
 // ADD_EXPENSE
@@ -39,6 +40,31 @@ export const editExpense = (id, updates) => ({
   updates
 });
 
+// eslint-disable-next-line arrow-body-style
+export const startRemoveExpense = (id) => {
+  // eslint-disable-next-line arrow-body-style
+  return (dispatch) => {
+    return database.ref(`expenses/${id}`).remove()
+      .then(() => {
+        dispatch(removeExpense({ id }));
+      });
+  };
+};
+
+// database.ref().update({
+//   stressLevel: 8.9,
+//   'job/city': 'Lucknow',
+//   'job/company': 'Google'
+// });
+
+export const startEditExpense = (id, updates) => {
+  return (dispatch) => {
+    return database.ref(`expenses/${id}`).update(updates).then(() => {
+      dispatch(editExpense(id, updates));
+    });
+  };
+};
+
 // SET EXPENSES
 export const setExpenses = expenses => ({
   type: 'SET_EXPENSES',
@@ -60,19 +86,6 @@ export const startSetExpenses = () => {
           });
         });
         dispatch(setExpenses(expenses));
-      });
-  };
-};
-
-
-// eslint-disable-next-line arrow-body-style
-export const startRemoveExpense = ( id ) => {
-  // eslint-disable-next-line arrow-body-style
-  console.log(id);
-  return (dispatch) => {
-    return database.ref(`expenses/${id}`).remove()
-      .then(() => {
-        dispatch(removeExpense({ id }));
       });
   };
 };
