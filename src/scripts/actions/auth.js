@@ -5,7 +5,7 @@ import { firebase, googleAuthProvider } from '../firebase/firebase';
 export const startLogin = () => {
   return () => {
     firebase.auth().signInWithPopup(googleAuthProvider)
-      .then(function(result) {return result})
-      .catch(function(error) {console.log(error.code, error.message)})
+      .then(function(result) {return result}) 
+      .catch(function(error) {console.log(error.code, error.message)}) 
   };
 };
