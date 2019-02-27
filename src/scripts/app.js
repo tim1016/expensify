@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import AppRouter from './routers/AppRouter';
 import configureStore from './store/configureStore';
 import { startSetExpenses } from './actions/expenses';
-import './firebase/firebase';
+import { firebase } from './firebase/firebase';
 import '../styles/styles.scss';
 import 'react-dates/lib/css/_datepicker.css';
 
@@ -21,4 +21,12 @@ ReactDOM.render(<p>Loading expesnes from the database</p>, document.getElementBy
 
 store.dispatch(startSetExpenses()).then(() => {
   ReactDOM.render(jsx, document.getElementById('app'));
+});
+
+firebase.auth().onAuthStateChanged((user) => {
+  if (user) {
+    console.log('Logged In');
+  } else {
+    console.log('Logged out');
+  }
 });
