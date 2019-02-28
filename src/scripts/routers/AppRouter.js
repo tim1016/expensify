@@ -10,19 +10,19 @@ import NotFoundPage from '../components/NotFoundPage';
 import EditExpense from '../components/EditExpense';
 import LoginPage from '../components/LoginPage';
 import HelpPage from '../components/HelpPage';
-import Header from '../components/Header';
+import PrivateRoute from './PrivateRoute';
 
 export const history = createHistory();
 
 const AppRouter = () => (
   <Router history={history}>
     <div>
-      <Header />
+      {/* <Header /> */}
       <Switch>
         <Route path="/" component={LoginPage} exact />
-        <Route path="/dashboard" component={ExpenseDashboardPage} exact />
-        <Route path="/create" component={AddExpense} />
-        <Route path="/edit/:id" component={EditExpense} />
+        <PrivateRoute path="/dashboard" component={ExpenseDashboardPage} exact />
+        <PrivateRoute path="/create" component={AddExpense} />
+        <PrivateRoute path="/edit/:id" component={EditExpense} />
         <Route path="/help" component={HelpPage} />
         <Route component={NotFoundPage} />
       </Switch>
