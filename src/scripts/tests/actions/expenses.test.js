@@ -184,7 +184,3 @@ test('should set expenses on firebase', (done) => {
     done();
   });
 });
-
-
-
-
