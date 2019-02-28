@@ -1,3 +1,4 @@
+/* eslint-disable prefer-destructuring */
 /* eslint-disable arrow-body-style */
 // import uuid from 'uuid';
 import database from '../firebase/firebase';
@@ -9,7 +10,8 @@ export const addExpense = expense => (
   }
 );
 
-export const startAddExpense = (expenseData = {}) => (dispatch) => {
+export const startAddExpense = (expenseData = {}) => (dispatch, getState) => {
+  const uid = getState().auth.uid;
   const {
     description = '',
     note = '',
@@ -20,7 +22,7 @@ export const startAddExpense = (expenseData = {}) => (dispatch) => {
     description, note, amount, createdAt
   };
 
-  return database.ref('expenses').push(expense).then((ref) => {
+  return database.ref(`users/${uid}/expenses`).push(expense).then((ref) => {
     dispatch(addExpense({
       ...expense,
       id: ref.key
@@ -29,7 +31,7 @@ export const startAddExpense = (expenseData = {}) => (dispatch) => {
 };
 
 // REMOVE_EXPENSE
-export const removeExpense = ({ id }) => ({
+export const removeExpense = ({ id } = {}) => ({
   type: 'REMOVE_EXPENSE',
   id
 });
@@ -41,25 +43,22 @@ export const editExpense = (id, updates) => ({
 });
 
 // eslint-disable-next-line arrow-body-style
-export const startRemoveExpense = (id) => {
+export const startRemoveExpense = ({ id } = {}) => {
   // eslint-disable-next-line arrow-body-style
-  return (dispatch) => {
-    return database.ref(`expenses/${id}`).remove()
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
+    return database.ref(`users/${uid}/expenses/${id}`).remove()
       .then(() => {
         dispatch(removeExpense({ id }));
       });
   };
 };
 
-// database.ref().update({
-//   stressLevel: 8.9,
-//   'job/city': 'Lucknow',
-//   'job/company': 'Google'
-// });
 
 export const startEditExpense = (id, updates) => {
-  return (dispatch) => {
-    return database.ref(`expenses/${id}`).update(updates).then(() => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
+    return database.ref(`users/${uid}/expenses/${id}`).update(updates).then(() => {
       dispatch(editExpense(id, updates));
     });
   };
@@ -75,8 +74,9 @@ export const setExpenses = expenses => ({
 // eslint-disable-next-line arrow-body-style
 export const startSetExpenses = () => {
   // eslint-disable-next-line arrow-body-style
-  return (dispatch) => {
-    return database.ref('expenses').once('value')
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
+    return database.ref(`users/${uid}/expenses`).once('value')
       .then((snapshot) => {
         const expenses = [];
         snapshot.forEach((childSnapshot) => {
