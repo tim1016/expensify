@@ -38,7 +38,7 @@ export class ExpenseListFilters extends React.Component{
 		return (
 			<div className="content-container">
 				<div className="input-group">
-					<div className="input_group__item">
+					<div className="input-group__item">
 						<input 
 							type="text" 
 							name="" 
@@ -50,7 +50,7 @@ export class ExpenseListFilters extends React.Component{
 						/>
 					</div>
 					
-					<div className="input_group__item">
+					<div className="input-group__item">
 						<select 
 							className="select"
 							name="" 
@@ -63,7 +63,7 @@ export class ExpenseListFilters extends React.Component{
 						</select>
 					</div>
 
-					<div className="input_group__item">
+					<div className="input-group__item">
 						<DateRangePicker 
 						startDate = {this.props.filters.startDate}
 						startDateId="your_unique_start_date_id"
@@ -72,9 +72,9 @@ export class ExpenseListFilters extends React.Component{
 						onDatesChange ={this.onDatesChange} 
 						focusedInput = {this.state.calendarFocused}
 						onFocusChange={this.onFocusChange}
-						isOutsideRange={ () => false }
-						numberOfMonths={1}
 						showClearDates={true} 
+						numberOfMonths={1}
+						isOutsideRange={ () => false }
 						/>
 					</div>
 				</div>
