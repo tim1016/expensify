@@ -10,7 +10,7 @@ export const Header = ({ startLogout }) => (
       <div className="header__content">
         <Link className="header__title" to="/dashboard">
           <h1>
-            Expensify
+            Youa&apos;s Expenses
           </h1>
         </Link>
         {/* <NavLink activeClassName="is-active" to="/create">Add expense</NavLink> */}
