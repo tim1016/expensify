@@ -7,6 +7,7 @@ import { firebase } from './firebase/firebase';
 import { startSetExpenses } from './actions/expenses';
 import { login, logout } from './actions/auth';
 
+import 'normalize.css';
 import '../styles/styles.scss';
 import 'react-dates/lib/css/_datepicker.css';
 
