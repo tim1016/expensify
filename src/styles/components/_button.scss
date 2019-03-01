@@ -6,4 +6,11 @@
   font-size: $font-size-large;
   font-weight: 300;
   padding: $s-size $m-size;
+  display: inline-block;
+  text-decoration: none;
+  line-height: 1;
+
+  &--no-bg{
+    background-color: inherit;
+  }
 }
