@@ -19,7 +19,7 @@ module.exports = (env, argv) => {
 
   return {
     mode: isProduction ? 'production' : 'development',
-    entry: './src/scripts/app.js',
+    entry: ['@babel/polyfill', './src/scripts/app.js'],
     output: {
       path: path.join(__dirname, 'public', 'dist'),
       filename: 'bundle.js'

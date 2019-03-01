@@ -6,10 +6,12 @@ import configureStore from './store/configureStore';
 import { firebase } from './firebase/firebase';
 import { startSetExpenses } from './actions/expenses';
 import { login, logout } from './actions/auth';
+import LoadingPage from './components/LoadingPage';
 
 // import 'normalize.css';
 import '../styles/styles.scss';
 import 'react-dates/lib/css/_datepicker.css';
+
 
 const store = configureStore();
 
@@ -27,7 +29,7 @@ const renderApp = () => {
   } 
 };
 
-ReactDOM.render(<p>Loading expesnes from the database</p>, document.getElementById('app'));
+ReactDOM.render(<LoadingPage />, document.getElementById('app'));
 
 store.dispatch(startSetExpenses()).then(() => {
   ReactDOM.render(jsx, document.getElementById('app'));
