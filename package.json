@@ -7,7 +7,8 @@
 		"build:prod": "webpack -p --env production",
 		"build:dev": "webpack",
 		"webpack-watch": "webpack --watch",
-		"devserver": "webpack-dev-server --open",
+		"devserver": "webpack-dev-server",
+		"server": "webpack-dev-server --open",
 		"webpack:production": "webpack -p",
 		"build-babel": "babel src/app.jsx --out-file=public/scripts/bundle.js --presets=@babel/env,@babel/react",
 		"jest": "jest --config=jest.config.json",
@@ -28,6 +29,7 @@
 	"dependencies": {
 		"@babel/cli": "^7.2.3",
 		"@babel/polyfill": "^7.2.5",
+		"bootstrap": "^4.3.1",
 		"chokidar": "^2.1.0",
 		"dotenv": "^6.2.0",
 		"enzyme": "^3.9.0",
