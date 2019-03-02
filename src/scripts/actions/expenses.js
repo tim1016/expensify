@@ -47,7 +47,9 @@ export const startRemoveExpense = ({ id } = {}) => {
   // eslint-disable-next-line arrow-body-style
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
+    console.log(id);
     return database.ref(`users/${uid}/expenses/${id}`).remove()
+      
       .then(() => {
         dispatch(removeExpense({ id }));
       });

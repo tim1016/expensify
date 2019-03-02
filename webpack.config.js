@@ -1,5 +1,3 @@
-// const HtmlWebPackPlugin = require('html-webpack-plugin');
-// import DotEnv from 'dotenv';
 const path = require('path');
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -48,6 +46,16 @@ module.exports = (env, argv) => {
             { loader: 'postcss-loader', options: { sourceMap: true } },
             { loader: 'sass-loader', options: { sourceMap: true } }
           ]
+        },
+        {
+          test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+          use: [{
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'fonts/'
+            }
+          }]
         },
         {
           test: /\.html$/,
